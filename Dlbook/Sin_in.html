@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>reg</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="php/autorization.php">
+</head>
+
+<body style="background-image: url('assets/img/star-sky.jpg');background-attachment: fixed;background-size: cover;">
+    <div class="login-dark">
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color: #20201f;">
+            <div class="container"><a class="navbar-brand" href="#" style="color: white;">DLbook</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="color: white;">Главная</a>
+                        </li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color: white;">&nbsp; &nbsp;&nbsp;</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text actions"> <a class="btn btn-light action-button" role="button" href="#">Log In</a>
+                    </span>
+                </div>
+    		</div>
+    	</nav>
+
+    <form action="php/autorization.php" method="post" style="/*margin-top: 20rem;*//*max-width: 100rem;*//*margin-left: 38rem;*/">
+        <h1 style="font-size: 2rem;text-align: center;">Регистрация</h1>
+        <div class="illustration" style="max-height: 4rem;">
+            <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Name"></div>
+        </div>
+        <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" style="margin-top: 1rem;"></div>
+        <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Пароль"><input class="form-control" type="password" name="rep_password" placeholder="Введите пароль повторно" style="margin-top: 1rem;"></div>
+        <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="enter_Sin" style="margin-top: 4rem;">Sin Up</button></div>
+    </form>
+    </div>
+    <footer style="position: absolute;top: 85%;">
+        <div class="row">
+            <div class="clearfix"></div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
