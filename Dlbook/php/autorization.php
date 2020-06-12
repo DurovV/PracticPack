@@ -17,10 +17,16 @@ class Autoris extends linkBd{
 		$password = htmlentities(mysqli_real_escape_string($link,$password));			
 		$email = htmlentities(mysqli_real_escape_string($link,$_POST['email']));
 
+
 		$query = "INSERT INTO user_acounts VALUES(NULL, '$password','$user_name','$email')";
 
 		$result = mysqli_query($link, $query)
 			or die("ощибка" . mysqli_error($link));
+		if ($result){
+			$_SESSION['loged_user'] = $email;
+			header('Location:http://maket/Start_page.html');
+			exit();
+		}
 		
 	}
 
@@ -56,7 +62,6 @@ class Autoris extends linkBd{
 }
 if (isset($_POST['enter_Sin'])){
 	$a = new Autoris;
-	$b = new linkBd;
 	$a -> link();
 	$a -> check();
 }

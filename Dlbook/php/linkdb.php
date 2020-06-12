@@ -12,10 +12,11 @@ class linkBd{
 
 		$link = mysqli_connect($this->host,$this->user_db,$this->password_db,$this->database_db)
 				or die(mysqli_error($link));
+		session_start();
 	}
 
 
 
 }
-session_start();
+
 ?>

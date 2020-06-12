@@ -12,23 +12,68 @@ class login extends linkBd{
 		if(isset($_POST['email']) and isset($_POST['password'])){
 
 			$email = $_POST['email'];
+			$email = htmlentities($email);
 			$password = $_POST['password'];
+
+			//шифрование пароля 
 			$password = md5($password."aisruifgo9egoiehrugeiporjg9jthpgioerdnpiguerio09u45fh434h09fg093420t0gbhui9rwhfg21fi34yqfgqgjwbe4780g34fgmpoierjh");
-			$check_email = mysqli_query($link, "SELECT * FROM user_acounts WHERE email LIKE '%".$email."%'");
-			if ($check_email->num_rows > 0){
-				$check_password = mysqli_query($link, "SELECT * FROM user_acounts WHERE password LIKE '%".$password."%'");
-				if ($check_password->num_rows > 0){
-					$_SESSION['loged_user'] = $email;
-					header('Location:http://maket/mainStudent.html');
-					exit();
+
+			//проверека на наличие email в бд
+			$check_id = mysqli_query($link, "SELECT * FROM `user_acounts` WHERE email='".$email."'");
+			$user = mysqli_fetch_assoc($check_id);
+
+			if ($user)
+			{
+				//проверка на наличие пароля в бд
+				$check_id = $user['user_id'];
+				$check_password = mysqli_query($link, "SELECT password FROM user_acounts WHERE user_id ='".$check_id."'");
+				$check_password = mysqli_fetch_assoc($check_password);
+
+				if ($check_password['password'] == $password)
+				{
+					$_SESSION['loged_user'] = $check_id;
+					//переход на страницу и занесение email в глобальный массив
+					//проверка на наличие прав пользователя 
+					$check_user_rights = mysqli_query($link, "SELECT * FROM `user_rights` WHERE user_id='".$check_id."'");
+					$check_user_rights = mysqli_fetch_assoc($check_user_rights);
+					
+					if ($check_user_rights){
+
+						//поиск базы данных к которой имеет отношение пользователь
+						$name_db_rights = $check_user_rights['db_name'];
+
+						//проверк на то что user имеет статус 
+						$check_user_rights_user = $check_user_rights['user'];
+						$check_user_rights_moder = $check_user_rights['moder'];
+						$check_user_rights_admin = $check_user_rights['admin'];
+
+						//переходы на рабочие области
+						if($check_user_rights_user == 1){
+							header('Location:http://maket/mainStudent.html');
+							exit();
+						}
+						elseif ($check_user_rights_moder == 1) {
+							header('Location:http://maket/mainTeacher.html');
+							exit();
+						}
+						elseif ($check_user_rights_admin == 1) {
+							header('Location:http://maket/mainTeacher.html');
+							exit();
+						}
+					}
+					//если пользовател не имеет никаких прав 
+					else{
+						header('Location:http://maket/Start_page.html');
+						exit();
+					}
 				}
 				else{
-					echo "Всё хуйня, давай по новой";
+					echo "Не правильно набран пароль";
 				}
-				}
+			}
 			else
 			{
-				echo "Всё хуйня";
+				echo "Не правильно набран email";
 			}
 			
 		}
