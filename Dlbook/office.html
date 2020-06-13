@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>ofice</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link href="php/redprof.php">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background-color: #20201f;">
+        <div class="container"><a class="navbar-brand" href="#" style="color: white;">DLbook</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="color: white;">Главная</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color: white;">Дневник</a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="color: white;">Предмет</a>
+                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                    </li>
+                </ul><span class="navbar-text actions"> <a class="login" href="#" style="color: white;">Выйти</a></span></div>
+        </div>
+    </nav>
+    <div style="margin-top: 6rem;margin-left: 15rem;">
+        <div class="container">
+            <div class="row">
+                <div class="col" style="max-width: 5rem;">
+                    <p>Name:&nbsp;</p>
+                    <p>Email:</p>
+                </div>
+                <div class="col">
+                    <p>Paragraph</p>
+                    <p>Paragraph</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 4rem;margin-left: 11rem;">
+        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-1" href="#collapse-1" role="button" style="color: #20201f;background-color: rgba(213,213,213,0.92);">Настройки пользователя</a>
+            <div class="collapse"
+                id="collapse-1">
+                <form action="php/redprof.php" method="post" style="margin-left: 2rem;">
+                    <p style="margin-top: 2rem;">Изменить имя пользователя</p>
+                    <input class="form-control" name="new_name" type="text" style="max-width: 28rem;">
+                    <p>Изменить почту</p>
+                    <input class="form-control" name="new_email" type="email" style="max-width: 28rem;">
+                    <p>Изменить пароль</p>
+                    <input class="form-control" name="new_password" type="password" style="max-width: 28rem;">
+                    <button name="enter"class="btn btn-primary" type="submit">Изменить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-2" href="#collapse-2" role="button" style="margin-left: 11rem;margin-top: 1rem;max-width: 212px;color: #20201f;background-color: rgba(213,213,213,0.92);">Управление БД &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</a>
+            <div
+                class="collapse" id="collapse-2">
+                <div style="margin-left: 13rem;margin-top: 1rem;">
+                    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-3" href="#collapse-3" role="button" style="color: #20201f;background-color: rgba(0,123,255,0);">Добавить БД &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</a>
+                        <div
+                            class="collapse" id="collapse-3" style="background-color: rgba(255,255,255,0.04);">
+                            <form style="margin-left: 2rem;">
+                                <p style="margin-top: 1rem;">Придумайте название новой БД</p>
+                                <div class="form-row">
+                                    <div class="col"><input class="form-control" type="text" style="max-width: 28rem;"></div>
+                                    <div class="col"><button class="btn btn-primary" type="button">Добавить</button></div>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+                <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-4" href="#collapse-4" role="button" style="margin-top: 1rem;background-color: rgba(0,123,255,0);color: rgb(3,3,3);">Управление Модераторами &nbsp;</a>
+                    <div
+                        class="collapse" id="collapse-4" style="background-color: rgba(255,255,255,0.04);">
+                        <div style="margin-left: 2rem;">
+                            <div style="margin-top: 2rem;"><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-6" href="#collapse-6" role="button" style="background-color: rgba(208,208,208,0.85);color: #20201f;">Добавить Модератора</a>
+                                <div
+                                    class="collapse" id="collapse-6">
+                                    <form action="php/newRights.php" method="post" style="margin-left: 2rem;">
+                                        <p style="margin-top: 1rem;">Выберите название базы БД в которую хотите назначить нового Модератор, затем введите его email.</p>
+                                        <div class="form-row">
+                                            <div class="col" style="max-width: 9rem;">
+                                                <div class="dropdown"><button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Название бд</button>
+                                                    <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">First Item</a><a class="dropdown-item" role="presentation" href="#">Second Item</a><a class="dropdown-item" role="presentation" href="#">Third Item</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="col"><input name="new_moder" class="form-control" type="email" style="max-width: 28rem;">
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <button class="btn btn-primary" name="ent_up" type="submit" style="margin-top: 1rem;margin-left: 2rem;">Добавить
+                                    </button>
+                                </div>
+                        </div>
+                        <div>
+                            <a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-7" href="#collapse-7" role="button" style="margin-top: 1rem;color: #20201f;background-color: rgba(213,213,213,0.92);">Удалить Модератора &nbsp;&nbsp;
+                            </a>
+                            <div class="collapse" id="collapse-7">
+                                <form action="php/newRights.php" method="post" style="margin-left: 2rem;margin-top: 1rem;">
+                                    <p>Collapse content.</p><input name="del_moder" class="form-control" type="email" style="max-width: 28rem;"><button name="ent_del" class="btn btn-primary" type="submit" style="margin-top: 1rem;">Удалить</button></form>
+                        </div>
+                </div>
+        </div>
+    </div>
+    </div>
+    <div><a class="btn btn-primary" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-5" href="#collapse-5" role="button" style="margin-top: 1rem;color: #20201f;background-color: rgba(255,255,255,0.04);">Управление Пользователями</a>
+        <div
+            class="collapse" id="collapse-5">
+            <p>Collapse content.</p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer style="position: absolute;top: 140%;">
+        <div class="row">
+            <div class="clearfix"></div>
+        </div>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
